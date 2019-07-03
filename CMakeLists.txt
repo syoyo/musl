@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 
 set(BUILD_TARGET "musl")
+set(TEST_TARGET "musl_test")
 
 #set(BUILD_VERSION_MAJOR 0)
 #set(BUILD_VERSION_MINOR 1)
@@ -9,6 +10,8 @@ set(BUILD_TARGET "musl")
 project(${BUILD_TARGET})
 
 list(APPEND LIBC_SOURCES
+  ${CMAKE_SOURCE_DIR}/src/math/msvc-x86_64/math-impl.c
+
   ${CMAKE_SOURCE_DIR}/src/stdlib/abs.c
   ${CMAKE_SOURCE_DIR}/src/stdlib/atof.c
   ${CMAKE_SOURCE_DIR}/src/stdlib/atoi.c
@@ -33,6 +36,10 @@ list(APPEND LIBC_SOURCES
 )
 
 add_library(${BUILD_TARGET} ${LIBC_SOURCES})
+
+add_executable(${TEST_TARGET} ${CMAKE_SOURCE_DIR}/test/main.cc)
+
+target_link_libraries(${TEST_TARGET} ${BUILD_TARGET})
 
 target_include_directories(${BUILD_TARGET} PRIVATE
 	# TODO(syoyo): Support 32bit
