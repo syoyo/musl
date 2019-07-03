@@ -1,6 +1,8 @@
 #ifndef _STDIO_IMPL_H
 #define _STDIO_IMPL_H
 
+#if 0
+
 #include <stdio.h>
 #include "syscall.h"
 
@@ -110,5 +112,7 @@ hidden void __getopt_msg(const char *, const char *, const char *, size_t);
 /* Caller-allocated FILE * operations */
 hidden FILE *__fopen_rb_ca(const char *, FILE *, unsigned char *, size_t);
 hidden int __fclose_ca(FILE *);
+
+#endif
 
 #endif

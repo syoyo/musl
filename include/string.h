@@ -53,6 +53,8 @@ size_t strlen (const char *);
 
 char *strerror (int);
 
+#if !defined(_MSC_VER)
+
 #if defined(_BSD_SOURCE) || defined(_GNU_SOURCE)
 #include <strings.h>
 #endif
@@ -96,6 +98,8 @@ void *mempcpy(void *, const void *, size_t);
 #ifndef __cplusplus
 char *basename();
 #endif
+#endif
+
 #endif
 
 #ifdef __cplusplus

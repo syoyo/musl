@@ -24,6 +24,9 @@ typedef const int * wctrans_t;
 
 #undef iswdigit
 
+// TODO(syoyo):
+#if !defined(_MSC_VER)
+
 int       iswalnum(wint_t);
 int       iswalpha(wint_t);
 int       iswblank(wint_t);
@@ -71,6 +74,8 @@ wctrans_t wctrans_l(const char *, locale_t);
 wctype_t  wctype_l(const char *, locale_t);
 
 #endif
+
+#endif 
 
 #ifdef __cplusplus
 }

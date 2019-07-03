@@ -37,6 +37,7 @@ static __inline int __isspace(int _c)
 #define isspace(a) __isspace(a)
 #endif
 
+#if !defined(_MSC_VER)
 
 #if defined(_POSIX_SOURCE) || defined(_POSIX_C_SOURCE) \
  || defined(_XOPEN_SOURCE) || defined(_GNU_SOURCE) \
@@ -65,6 +66,8 @@ int   toascii(int);
 #define _tolower(a) ((a)|0x20)
 #define _toupper(a) ((a)&0x5f)
 #define isascii(a) (0 ? isascii(a) : (unsigned)(a) < 128)
+
+#endif
 
 #endif
 

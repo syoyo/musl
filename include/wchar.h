@@ -5,6 +5,8 @@
 extern "C" {
 #endif
 
+#if !defined(_MSC_VER)
+
 #include <features.h>
 
 #define __NEED_FILE
@@ -197,6 +199,8 @@ wctype_t  wctype(const char *);
 #define iswdigit(a) (0 ? iswdigit(a) : ((unsigned)(a)-'0') < 10)
 #endif
 #endif
+
+#endif // _MSC_VER
 
 #ifdef __cplusplus
 }

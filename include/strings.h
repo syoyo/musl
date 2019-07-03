@@ -29,8 +29,10 @@ int ffsll (long long);
 int strcasecmp (const char *, const char *);
 int strncasecmp (const char *, const char *, size_t);
 
+#if !defined(_MSC_VER)
 int strcasecmp_l (const char *, const char *, locale_t);
 int strncasecmp_l (const char *, const char *, size_t, locale_t);
+#endif
 
 #ifdef __cplusplus
 }

@@ -129,6 +129,8 @@ void setbuf(FILE *__restrict, char *__restrict);
 char *tmpnam(char *);
 FILE *tmpfile(void);
 
+#if !defined(_MSC_VER)
+
 #if defined(_POSIX_SOURCE) || defined(_POSIX_C_SOURCE) \
  || defined(_XOPEN_SOURCE) || defined(_GNU_SOURCE) \
  || defined(_BSD_SOURCE)
@@ -201,6 +203,8 @@ typedef struct _IO_cookie_io_functions_t {
 } cookie_io_functions_t;
 
 FILE *fopencookie(void *, const char *, cookie_io_functions_t);
+#endif
+
 #endif
 
 #if defined(_LARGEFILE64_SOURCE) || defined(_GNU_SOURCE)
